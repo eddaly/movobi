@@ -33,7 +33,8 @@
                             inManagedObjectContext:context];    
 
     NSString *imageName = [[NSBundle mainBundle] pathForResource:@"Ninja_01a" ofType:@"jpg"];
-    UIImage *image = [UIImage imageWithContentsOfFile:imageName];
+    NSURL *urlImageName = [NSURL fileURLWithPath: imageName];
+    CIImage *image = [CIImage imageWithContentsOfURL:urlImageName];
     
     screen.image = image;
     screen.time = [NSNumber numberWithInt:4];
@@ -62,8 +63,8 @@
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    }*/
+    /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                     entityForName:@"Movie" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
@@ -164,17 +165,23 @@
      if (![context save:&error]) {
      NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
      }
-     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+   
+   */
+   
+    
+    /*NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
      NSEntityDescription *entity = [NSEntityDescription
      entityForName:@"Movie" inManagedObjectContext:context];
      [fetchRequest setEntity:entity];
      NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-     for (Movie *move in fetchedObjects) {
+     for (Movie *movie in fetchedObjects) {
      NSLog(@"Name: %@", movie.name);
      NSArray *screens = [movie.screens allObjects];
      for (Screen *screen in screens)
      {
-     NSLog(@"Time: %@", screen.time);
+     NSLog(@"Time: %@ %@", screen.time, screen.image);
      }
      NSArray *tags = [movie.tags allObjects];
      for (Tag *tag in tags)

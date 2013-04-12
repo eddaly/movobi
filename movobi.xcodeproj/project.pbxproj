@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6463DD8117184754005E224B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		64A6016617093539001D88E5 /* MovobiScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiScreenView.m; sourceTree = "<group>"; };
 		64A6016817093544001D88E5 /* MovobiScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiScreenView.h; sourceTree = "<group>"; };
 		64C15BAD1707999D00B66136 /* movobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +94,7 @@
 		64C15BA41707999D00B66136 = {
 			isa = PBXGroup;
 			children = (
+				6463DD8117184754005E224B /* CoreImage.framework */,
 				64C15BB81707999D00B66136 /* movobi */,
 				64C15BAF1707999D00B66136 /* Frameworks */,
 				64C15BAE1707999D00B66136 /* Products */,

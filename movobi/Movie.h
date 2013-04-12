@@ -16,8 +16,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * resolutionHeight;
 @property (nonatomic, retain) NSNumber * resolutionWidth;
-@property (nonatomic, retain) NSSet *tags;
-@property (nonatomic, retain) NSSet *screens;
+@property (nonatomic, retain) NSMutableSet *tags;
+@property (nonatomic, retain) NSMutableSet *screens;
 @end
 
 @interface Movie (CoreDataGeneratedAccessors)
