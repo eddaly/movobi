@@ -1,5 +1,5 @@
 //
-//  Tag.h
+//  Film.h
 //  movobi
 //
 //  Created by Ed Daly on 27/04/2013.
@@ -11,24 +11,28 @@
 
 @class MObject, Screen;
 
-@interface Tag : NSManagedObject
+@interface Film : NSManagedObject
 
 @property (nonatomic, retain) NSData * data;
-@property (nonatomic, retain) NSString * desc;
+@property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) NSNumber * flags;
-@property (nonatomic, retain) NSNumber * rectHeight;
-@property (nonatomic, retain) NSNumber * rectTopLeftX;
-@property (nonatomic, retain) NSNumber * rectTopLeftY;
-@property (nonatomic, retain) NSNumber * rectWidth;
+@property (nonatomic, retain) id image;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * year;
 @property (nonatomic, retain) NSSet *mobjects;
-@property (nonatomic, retain) Screen *screen;
+@property (nonatomic, retain) NSSet *screens;
 @end
 
-@interface Tag (CoreDataGeneratedAccessors)
+@interface Film (CoreDataGeneratedAccessors)
 
 - (void)addMobjectsObject:(MObject *)value;
 - (void)removeMobjectsObject:(MObject *)value;
 - (void)addMobjects:(NSSet *)values;
 - (void)removeMobjects:(NSSet *)values;
+
+- (void)addScreensObject:(Screen *)value;
+- (void)removeScreensObject:(Screen *)value;
+- (void)addScreens:(NSSet *)values;
+- (void)removeScreens:(NSSet *)values;
 
 @end

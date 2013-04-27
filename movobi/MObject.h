@@ -1,5 +1,5 @@
 //
-//  Screen.h
+//  MObject.h
 //  movobi
 //
 //  Created by Ed Daly on 27/04/2013.
@@ -11,19 +11,23 @@
 
 @class Film, Tag;
 
-@interface Screen : NSManagedObject
+@interface MObject : NSManagedObject
 
 @property (nonatomic, retain) NSData * data;
-@property (nonatomic, retain) NSString * desc;
 @property (nonatomic, retain) NSNumber * flags;
 @property (nonatomic, retain) id image;
-@property (nonatomic, retain) NSNumber * timeEnd;
-@property (nonatomic, retain) NSNumber * timeStart;
-@property (nonatomic, retain) Film *film;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSSet *films;
 @property (nonatomic, retain) NSSet *tags;
 @end
 
-@interface Screen (CoreDataGeneratedAccessors)
+@interface MObject (CoreDataGeneratedAccessors)
+
+- (void)addFilmsObject:(Film *)value;
+- (void)removeFilmsObject:(Film *)value;
+- (void)addFilms:(NSSet *)values;
+- (void)removeFilms:(NSSet *)values;
 
 - (void)addTagsObject:(Tag *)value;
 - (void)removeTagsObject:(Tag *)value;

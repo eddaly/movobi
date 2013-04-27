@@ -11,6 +11,6 @@
 @interface MovobiMasterViewController : UITableViewController
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSArray *films;
 
 @end

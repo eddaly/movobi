@@ -7,14 +7,14 @@
 //
 
 #import "MovobiMasterViewController.h"
-#import "MovobiMovieViewController.h"
-#import "Movie.h"
+#import "MovobiFilmViewController.h"
+#import "Film.h"
 #import "Screen.h"
 
 @implementation MovobiMasterViewController
 
 @synthesize managedObjectContext;
-@synthesize movies;
+@synthesize films;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,10 +25,10 @@
     NSArray *sortDescriptors = @[nameDescriptor];
     [fetchRequest setSortDescriptors: sortDescriptors];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Movie" inManagedObjectContext:managedObjectContext];
+                                   entityForName:@"Film" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError *error;
-    self.movies = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.films = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     //self.title = @"Movies";
     
 }
@@ -39,21 +39,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [movies count];
+    return [films count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Movie";
+    static NSString *CellIdentifier = @"Film";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Set up the cell...
-    Movie *movie = [movies objectAtIndex:indexPath.row];
-    cell.textLabel.text = movie.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
-                                 movie.resolutionWidth, movie.resolutionHeight];
+    Film *film = [films objectAtIndex:indexPath.row];
+    cell.textLabel.text = film.name;
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
+      //                           film.resolutionWidth, film.resolutionHeight];
     
     //UIImageView
     /*NSArray *screens = [movie.screens allObjects];
@@ -67,16 +67,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"ShowMovie" sender:nil];
+    [self performSegueWithIdentifier:@"ShowFilm" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"ShowMovie"])
+    if ([[segue identifier] isEqualToString:@"ShowFilm"])
     {
-        MovobiMovieViewController *movieViewController = [segue destinationViewController];
-        
-        movieViewController.movie = [movies objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        MovobiFilmViewController *filmViewController = [segue destinationViewController];
+        filmViewController.film = [films objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

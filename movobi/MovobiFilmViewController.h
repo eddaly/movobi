@@ -1,5 +1,5 @@
 //
-//  MovobiMovieViewController.h
+//  MovobiFilmViewController.h
 //  movobi
 //
 //  Created by Ed Daly on 30/03/2013.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class Movie;
+@class Film;
 
-@interface MovobiMovieViewController : UITableViewController
-@property (nonatomic, strong) Movie *movie;
+@interface MovobiFilmViewController : UITableViewController
+@property (nonatomic, strong) Film *film;
 @property (nonatomic, strong) NSArray *screens;
 
 @end

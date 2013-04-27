@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Movie" textLabel="phq-AM-6qj" detailTextLabel="vaL-hb-vWJ" style="IBUITableViewCellStyleSubtitle" id="lJ0-d7-vTF">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Film" textLabel="phq-AM-6qj" detailTextLabel="vaL-hb-vWJ" style="IBUITableViewCellStyleSubtitle" id="lJ0-d7-vTF" userLabel="Table View Cell - Film">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -59,19 +59,19 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Movies" id="36"/>
+                    <navigationItem key="navigationItem" title="Films" id="36"/>
                     <connections>
-                        <segue destination="qIy-3t-O6d" kind="push" identifier="ShowMovie" id="suB-vo-TnF"/>
+                        <segue destination="qIy-3t-O6d" kind="push" identifier="ShowFilm" id="suB-vo-TnF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="411" y="64"/>
         </scene>
-        <!--Movobi Movie View Controller - Movie-->
+        <!--Movobi Film View Controller - Film-->
         <scene sceneID="ddA-Q7-njb">
             <objects>
-                <tableViewController id="qIy-3t-O6d" customClass="MovobiMovieViewController" sceneMemberID="viewController">
+                <tableViewController id="qIy-3t-O6d" userLabel="Movobi Film View Controller - Film" customClass="MovobiFilmViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="092-gv-sBd">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +104,7 @@
                             <outlet property="delegate" destination="qIy-3t-O6d" id="sMX-1h-EWD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Movie" id="4rm-tA-pjl"/>
+                    <navigationItem key="navigationItem" title="Film" id="4rm-tA-pjl"/>
                     <connections>
                         <segue destination="GQo-4l-euZ" kind="push" identifier="ShowScreen" id="3ZQ-ps-LaG"/>
                     </connections>
@@ -243,11 +243,11 @@
         </scene>
     </scenes>
     <classes>
+        <class className="MovobiFilmViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovobiFilmViewController.h"/>
+        </class>
         <class className="MovobiMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovobiMasterViewController.h"/>
-        </class>
-        <class className="MovobiMovieViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovobiMovieViewController.h"/>
         </class>
         <class className="MovobiScreenView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovobiScreenView.h"/>

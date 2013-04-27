@@ -9,7 +9,7 @@
 #import "MovobiScreenViewController.h"
 #import "MovobiTagViewController.h"
 #import "MovobiScreenView.h"
-#import "Movie.h"
+#import "Film.h"
 #import "Screen.h"
 #import "Tag.h"
 
@@ -43,9 +43,9 @@
     //for when missing screens (not that this view can manage that)
      //*** should only display those near screen based on time
     //tags = [NSArray alloc]; //needed, don't really get this stuff
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStart" ascending:YES];
+    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"desc" ascending:YES];
     NSArray *sortDescriptors = @[nameDescriptor];
-    tags = [screen.movie.tags sortedArrayUsingDescriptors: sortDescriptors];
+    tags = [screen.tags sortedArrayUsingDescriptors: sortDescriptors];
 }
 
 - (void)viewWillAppear:(BOOL)animated

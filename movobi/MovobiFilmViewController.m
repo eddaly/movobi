@@ -1,25 +1,25 @@
 //
-//  MovobiMovieViewController.m
+//  MovobiFilmViewController.m
 //  movobi
 //
 //  Created by Ed Daly on 30/03/2013.
 //  Copyright (c) 2013 Movobi Ltd. All rights reserved.
 //
 
-#import "MovobiMovieViewController.h"
+#import "MovobiFilmViewController.h"
 #import "MovobiScreenViewController.h"
-#import "Movie.h"
+#import "Film.h"
 #import "Screen.h"
 #import "Tag.h"
 
 
-@interface MovobiMovieViewController ()
+@interface MovobiFilmViewController ()
 
 @end
 
-@implementation MovobiMovieViewController
+@implementation MovobiFilmViewController
 
-@synthesize movie;
+@synthesize film;
 @synthesize screens;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -35,9 +35,9 @@
 {
     [super viewDidLoad];
     
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStart" ascending:YES];
     NSArray *sortDescriptors = @[nameDescriptor];
-    screens = [movie.screens sortedArrayUsingDescriptors: sortDescriptors];
+    screens = [film.screens sortedArrayUsingDescriptors: sortDescriptors];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -62,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [movie.screens count];
+    return [film.screens count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,7 +73,7 @@
     
     // Set up the cell...
     Screen *screen = [screens objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", screen.time];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", screen.timeStart];
     [cell.imageView setImage: screen.image];
     
     return cell;
