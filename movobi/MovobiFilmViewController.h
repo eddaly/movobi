@@ -2,7 +2,7 @@
 //  MovobiFilmViewController.h
 //  movobi
 //
-//  Created by Ed Daly on 30/03/2013.
+//  Created by Ed Daly on 28/04/2013.
 //  Copyright (c) 2013 Movobi Ltd. All rights reserved.
 //
 
@@ -10,8 +10,11 @@
 
 @class Film;
 
-@interface MovobiFilmViewController : UITableViewController
+@interface MovobiFilmViewController : UIViewController
+
 @property (nonatomic, strong) Film *film;
-@property (nonatomic, strong) NSArray *screens;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

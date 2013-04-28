@@ -15,6 +15,9 @@
 		647A6596172BE8F50081E62C /* MOCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A6595172BE8F50081E62C /* MOCharacter.m */; };
 		647A6599172BE9070081E62C /* MOActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A6598172BE9070081E62C /* MOActor.m */; };
 		647A659C172BE91E0081E62C /* MObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A659B172BE91D0081E62C /* MObject.m */; };
+		647A65AA172D3BB40081E62C /* MovobiFilmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A65A9172D3BB40081E62C /* MovobiFilmViewController.m */; };
+		64903322172DA15C0003BF25 /* MovobiFilmScreensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64903321172DA15C0003BF25 /* MovobiFilmScreensViewController.m */; };
+		64903325172DB0F20003BF25 /* MovobiMObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64903324172DB0F10003BF25 /* MovobiMObjectViewController.m */; };
 		64A6016717093539001D88E5 /* MovobiScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A6016617093539001D88E5 /* MovobiScreenView.m */; };
 		64C15BB11707999D00B66136 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C15BB01707999D00B66136 /* UIKit.framework */; };
 		64C15BB31707999D00B66136 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C15BB21707999D00B66136 /* Foundation.framework */; };
@@ -33,7 +36,6 @@
 		64C15BF01707CC1A00B66136 /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 64C15BEF1707CC1A00B66136 /* Notes.rtf */; };
 		64C15C2D1707D85000B66136 /* MovobiScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C15C2C1707D84F00B66136 /* MovobiScreenViewController.m */; };
 		64C15C301707DB5700B66136 /* MovobiTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C15C2F1707DB5700B66136 /* MovobiTagViewController.m */; };
-		64C15C351707E0A100B66136 /* MovobiFilmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C15C341707E0A000B66136 /* MovobiFilmViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,12 @@
 		647A6598172BE9070081E62C /* MOActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOActor.m; sourceTree = "<group>"; };
 		647A659A172BE91D0081E62C /* MObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MObject.h; sourceTree = "<group>"; };
 		647A659B172BE91D0081E62C /* MObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MObject.m; sourceTree = "<group>"; };
+		647A65A8172D3BB40081E62C /* MovobiFilmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiFilmViewController.h; sourceTree = "<group>"; };
+		647A65A9172D3BB40081E62C /* MovobiFilmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiFilmViewController.m; sourceTree = "<group>"; };
+		64903320172DA15C0003BF25 /* MovobiFilmScreensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiFilmScreensViewController.h; sourceTree = "<group>"; };
+		64903321172DA15C0003BF25 /* MovobiFilmScreensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiFilmScreensViewController.m; sourceTree = "<group>"; };
+		64903323172DB0F10003BF25 /* MovobiMObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiMObjectViewController.h; sourceTree = "<group>"; };
+		64903324172DB0F10003BF25 /* MovobiMObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiMObjectViewController.m; sourceTree = "<group>"; };
 		64A6016617093539001D88E5 /* MovobiScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiScreenView.m; sourceTree = "<group>"; };
 		64A6016817093544001D88E5 /* MovobiScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiScreenView.h; sourceTree = "<group>"; };
 		64C15BAD1707999D00B66136 /* movobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,8 +89,6 @@
 		64C15C2C1707D84F00B66136 /* MovobiScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiScreenViewController.m; sourceTree = "<group>"; };
 		64C15C2E1707DB5700B66136 /* MovobiTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiTagViewController.h; sourceTree = "<group>"; };
 		64C15C2F1707DB5700B66136 /* MovobiTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiTagViewController.m; sourceTree = "<group>"; };
-		64C15C331707E08A00B66136 /* MovobiFilmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiFilmViewController.h; sourceTree = "<group>"; };
-		64C15C341707E0A000B66136 /* MovobiFilmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiFilmViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +168,12 @@
 				64C15BC21707999D00B66136 /* MovobiAppDelegate.m */,
 				64C15BDB170799E500B66136 /* MovobiMasterViewController.h */,
 				64C15BDC170799E500B66136 /* MovobiMasterViewController.m */,
-				64C15C331707E08A00B66136 /* MovobiFilmViewController.h */,
-				64C15C341707E0A000B66136 /* MovobiFilmViewController.m */,
+				647A65A8172D3BB40081E62C /* MovobiFilmViewController.h */,
+				647A65A9172D3BB40081E62C /* MovobiFilmViewController.m */,
+				64903320172DA15C0003BF25 /* MovobiFilmScreensViewController.h */,
+				64903321172DA15C0003BF25 /* MovobiFilmScreensViewController.m */,
+				64903323172DB0F10003BF25 /* MovobiMObjectViewController.h */,
+				64903324172DB0F10003BF25 /* MovobiMObjectViewController.m */,
 				64C15C2B1707D84F00B66136 /* MovobiScreenViewController.h */,
 				64C15C2C1707D84F00B66136 /* MovobiScreenViewController.m */,
 				64A6016817093544001D88E5 /* MovobiScreenView.h */,
@@ -267,7 +277,6 @@
 				64C15BE01707A1E000B66136 /* MovobiImageTransformer.m in Sources */,
 				64C15C2D1707D85000B66136 /* MovobiScreenViewController.m in Sources */,
 				64C15C301707DB5700B66136 /* MovobiTagViewController.m in Sources */,
-				64C15C351707E0A100B66136 /* MovobiFilmViewController.m in Sources */,
 				64A6016717093539001D88E5 /* MovobiScreenView.m in Sources */,
 				647A6587172BE88E0081E62C /* Film.m in Sources */,
 				647A658A172BE8AB0081E62C /* Screen.m in Sources */,
@@ -277,6 +286,9 @@
 				647A6596172BE8F50081E62C /* MOCharacter.m in Sources */,
 				647A6599172BE9070081E62C /* MOActor.m in Sources */,
 				647A659C172BE91E0081E62C /* MObject.m in Sources */,
+				647A65AA172D3BB40081E62C /* MovobiFilmViewController.m in Sources */,
+				64903322172DA15C0003BF25 /* MovobiFilmScreensViewController.m in Sources */,
+				64903325172DB0F20003BF25 /* MovobiMObjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
