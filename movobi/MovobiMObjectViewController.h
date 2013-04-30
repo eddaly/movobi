@@ -2,18 +2,18 @@
 //  MovobiMObjectViewController.h
 //  movobi
 //
-//  Created by Ed Daly on 28/04/2013.
+//  Created by Ed Daly on 30/03/2013.
 //  Copyright (c) 2013 Movobi Ltd. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MovobiMObjectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@class MObject;
 
-@property (nonatomic, strong) NSArray *mobjects;
-@property (weak, nonatomic) IBOutlet UITableView *moactorsTableView;
-@property (weak, nonatomic) IBOutlet UITableView *mocharactersTableView;
-@property (weak, nonatomic) IBOutlet UITableView *mopropsTableView;
-@property (weak, nonatomic) IBOutlet UITableView *molocationsTableView;
+@interface MovobiMObjectViewController : UITableViewController <UIWebViewDelegate>
+@property (nonatomic, strong) MObject *mobject;
+
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

@@ -9,7 +9,7 @@
 #import "MovobiMasterViewController.h"
 #import "MovobiFilmViewController.h"
 #import "MovobiFilmScreensViewController.h"
-#import "MovobiMObjectViewController.h"
+#import "MovobiMObjectsViewController.h"
 #import "Film.h"
 #import "Screen.h"
 #import "MOActor.h"
@@ -85,10 +85,10 @@
         // Sort and set MObjects arrays for the screens view
         NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         
-        MovobiMObjectViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: 2];
-        MovobiMObjectViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: 3];
-        MovobiMObjectViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: 4];
-        MovobiMObjectViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: 5];
+        MovobiMObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: 2];
+        MovobiMObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: 3];
+        MovobiMObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: 4];
+        MovobiMObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: 5];
         
         NSArray *mobjectsArray = [filmViewController.film.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
         NSMutableArray *moactorsArray = [NSMutableArray arrayWithCapacity: 0];
@@ -114,10 +114,12 @@
                 [molocsArray addObject:mobject];
             }
         }
-        moactorsViewController.mobjects = moactorsArray; // ***ok?
-        mocharactersViewController.mobjects = mocharactersArray; // ***ok?
-        mopropsViewController.mobjects = mopropsArray; // ***ok?
-        molocsViewController.mobjects = molocsArray; // ***ok?
+        moactorsViewController.mobjects = moactorsArray;
+        moactorsViewController.useClassSpecificDetailViews = YES;
+        mocharactersViewController.mobjects = mocharactersArray;
+        mocharactersViewController.useClassSpecificDetailViews = YES;
+        mopropsViewController.mobjects = mopropsArray;
+        molocsViewController.mobjects = molocsArray;
     }
 }
 

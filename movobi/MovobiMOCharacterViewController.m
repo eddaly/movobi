@@ -1,25 +1,24 @@
 //
-//  MovobiTagViewController.m
+//  MovobiMOCharacterViewController.m
 //  movobi
 //
-//  Created by Ed Daly on 30/03/2013.
+//  Created by Ed Daly on 29/04/2013.
 //  Copyright (c) 2013 Movobi Ltd. All rights reserved.
 //
 
-#import "MovobiTagViewController.h"
-#import "Tag.h"
+#import "MovobiMOCharacterViewController.h"
+#import "MOActor.h"
+#import "MOCharacter.h"
 
-@interface MovobiTagViewController ()
+@interface MovobiMOCharacterViewController ()
 
 @end
 
-@implementation MovobiTagViewController
+@implementation MovobiMOCharacterViewController
 
-@synthesize tag;
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -30,19 +29,33 @@
 {
     [super viewDidLoad];
     
-    self.descLabel.text = tag.desc;
-    NSString *urlString = [NSString stringWithFormat: @"http://google.com/search?q=%@&safe",self.descLabel.text];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    
+    NSString *urlString;
+    if (self.mocharacter.url == nil || [self.mocharacter.url compare:@""] == NSOrderedSame)
+    {
+        urlString = [NSString stringWithFormat: @"http://google.com/search?q=%@&safe", self.mocharacter.name];
+    }
+    else
+    {
+        urlString = [NSString stringWithFormat: @"http://google.com/search?q=%@&safe", self.mocharacter.url];
+    }
     NSString* webStringURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString: webStringURL];
-
+    
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestURL];
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,9 +64,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Table view data source
-Not needed as its static
+#pragma mark - Table view data source
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -62,19 +74,24 @@ Not needed as its static
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1; // Currently just showing the description but still using a table
+    // Return the number of rows in the section.
+    return [self.mocharacter.actors count];
 }
-*/
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Desc";
+    static NSString *CellIdentifier = @"Name";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", tag.desc];
+    NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *actorsArray = [self.mocharacter.actors sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
+    MOActor *moactor = [actorsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = moactor.name;
+    cell.imageView.image = moactor.image;
     
     return cell;
-}*/
+}
 
 /*
 // Override to support conditional editing of the table view.

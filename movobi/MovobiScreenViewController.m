@@ -7,11 +7,12 @@
 //
 
 #import "MovobiScreenViewController.h"
-#import "MovobiTagViewController.h"
+#import "MovobiMObjectsViewController.h"
 #import "MovobiScreenView.h"
 #import "Film.h"
 #import "Screen.h"
 #import "Tag.h"
+
 
 @interface MovobiScreenViewController ()
 
@@ -100,27 +101,20 @@
 -(CGRect)frameForImage:(UIImage*)image inImageViewAspectFit:(UIImageView*)imageView
 {
     float imageRatio = image.size.width / image.size.height;
-    
     float viewRatio = imageView.frame.size.width / imageView.frame.size.height;
     
     if(imageRatio < viewRatio)
     {
         float scale = imageView.frame.size.height / image.size.height;
-        
         float width = scale * image.size.width;
-        
         float topLeftX = (imageView.frame.size.width - width) * 0.5;
-        
         return CGRectMake(topLeftX, 0, width, imageView.frame.size.height);
     }
     else
     {
         float scale = imageView.frame.size.width / image.size.width;
-        
         float height = scale * image.size.height;
-        
         float topLeftY = (imageView.frame.size.height - height) * 0.5;
-        
         return CGRectMake(0, topLeftY, imageView.frame.size.width, height);
     }
 }
@@ -139,8 +133,7 @@
         CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
         // Scaled tag
-        CGRect rect = CGRectMake (
-                                  r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
+        CGRect rect = CGRectMake (r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
                                   r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
                                   [tag.rectWidth floatValue] * r.size.width,
                                   [tag.rectHeight floatValue] * r.size.height);
@@ -218,8 +211,6 @@
     
     for (Tag *tag in tags)
     {
-        //NSLog(@"TAG %f %f %f %f IMG %f %f", [tag.rectTopLeftX floatValue], [tag.rectTopLeftY floatValue], [tag.rectWidth floatValue], [tag.rectHeight floatValue], self.image.image.size.width, self.image.image.size.height);
-        
         // Scaled image
         CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
@@ -229,7 +220,6 @@
             r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
             [tag.rectWidth floatValue] * r.size.width,
             [tag.rectHeight floatValue] * r.size.height);
-        //NSLog(@"tag %f %f %f %f", rect.origin.x, rect.origin.x + rect.size.width, rect.origin.y, rect.origin.y + rect.size.height);
         //***need to test with proper data
         if (point.x >= rect.origin.x &&
             point.x <= rect.origin.x + rect.size.width &&
@@ -238,7 +228,7 @@
         {
             //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
             //[self.tagsTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-            [self performSegueWithIdentifier:@"ShowTag" sender:nil];
+            [self performSegueWithIdentifier:@"ShowTagMObjects" sender:nil];
             return;
         }
         i++;
@@ -275,7 +265,7 @@
     
     // Set up the cell...
     Tag *tag = [tags objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", tag.desc];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", tag.desc];
     
     return cell;
     
@@ -291,15 +281,18 @@
         
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"ShowTag" sender:nil];
+    [self performSegueWithIdentifier:@"ShowTagMObjects" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"ShowTag"])
+    if ([[segue identifier] isEqualToString:@"ShowTagMObjects"])
     {
-        MovobiTagViewController *tagViewController = [segue destinationViewController];
-        tagViewController.tag = [tags objectAtIndex:[self.tagsTable indexPathForSelectedRow].row];
+        MovobiMObjectsViewController *viewController = [segue destinationViewController];
+        NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        Tag *tag = [tags objectAtIndex:[self.tagsTable indexPathForSelectedRow].row];
+        viewController.mobjects = [tag.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
+        viewController.useClassSpecificDetailViews = NO;
     }
 }
 

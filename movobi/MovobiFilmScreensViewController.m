@@ -8,7 +8,13 @@
 
 #import "MovobiFilmScreensViewController.h"
 #import "Screen.h"
+#import "Tag.h"
 #import "MovobiScreenViewController.h"
+#import "MovobiScreenObjectsViewController.h"
+#import "MOActor.h"
+#import "MOCharacter.h"
+#import "MOProp.h"
+#import "MOLocation.h"
 
 @interface MovobiFilmScreensViewController ()
 
@@ -124,9 +130,60 @@
 {
     if ([[segue identifier] isEqualToString:@"ShowScreen"])
     {
-        MovobiScreenViewController *screenViewController = [segue destinationViewController];
+        UITabBarController *tabBarController = [segue destinationViewController];
         
+        MovobiScreenViewController *screenViewController = [[tabBarController viewControllers] objectAtIndex: 0];
         screenViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        
+        MovobiScreenObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: 1];
+        moactorsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        MovobiScreenObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: 2];
+        mocharactersViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        
+        MovobiScreenObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: 3];
+        mopropsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        MovobiScreenObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: 4];
+        molocsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        
+        // Sort and set objects array for the object views
+        NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        
+    
+        
+        NSMutableArray *moactorsArray = [NSMutableArray arrayWithCapacity: 0];
+        NSMutableArray *mocharactersArray = [NSMutableArray arrayWithCapacity: 0];
+        NSMutableArray *mopropsArray = [NSMutableArray arrayWithCapacity: 0];
+        NSMutableArray *molocsArray = [NSMutableArray arrayWithCapacity: 0];
+
+        for (Tag *tag in screenViewController.screen.tags)
+        {
+            NSArray *mobjectsArray = [tag.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
+        
+            for (MObject *mobject in mobjectsArray)
+            {
+                if ([mobject isMemberOfClass:[MOActor class]])
+                {
+                    [moactorsArray addObject: mobject];
+                }
+                else if ([mobject isMemberOfClass:[MOCharacter class]])
+                {
+                    [mocharactersArray addObject:mobject];
+                }
+                else if ([mobject isMemberOfClass:[MOProp class]])
+                {
+                    [mopropsArray addObject:mobject];
+                }
+                else if ([mobject isMemberOfClass:[MOLocation class]])
+                {
+                    [molocsArray addObject:mobject];
+                }
+            }
+        }
+        
+        moactorsViewController.mobjects = moactorsArray;
+        mocharactersViewController.mobjects = mocharactersArray;
+        mopropsViewController.mobjects = mopropsArray;
+        molocsViewController.mobjects = molocsArray;
     }
 }
 
