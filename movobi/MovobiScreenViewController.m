@@ -40,10 +40,6 @@
     [self.image setImage: screen.image];
     //[ self setClearsSelectionOnViewWillAppear:NO ];
     
-    //Note, not currently linked tags to screens as may wish to decouple
-    //for when missing screens (not that this view can manage that)
-     //*** should only display those near screen based on time
-    //tags = [NSArray alloc]; //needed, don't really get this stuff
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"desc" ascending:YES];
     NSArray *sortDescriptors = @[nameDescriptor];
     tags = [screen.tags sortedArrayUsingDescriptors: sortDescriptors];
@@ -73,8 +69,7 @@
         CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
         // Scaled tag
-        CGRect tagRect = CGRectMake (
-                                     r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
+        CGRect tagRect = CGRectMake (r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
                                      r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
                                      [tag.rectWidth floatValue] * r.size.width,
                                      [tag.rectHeight floatValue] * r.size.height);
@@ -166,11 +161,10 @@
     for (Tag *tag in tags)
     {
         // Scaled image
-        CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
+        CGRect r = [self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
         // Scaled tag
-        CGRect rect = CGRectMake (
-                                  r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
+        CGRect rect = CGRectMake (r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
                                   r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
                                   [tag.rectWidth floatValue] * r.size.width,
                                   [tag.rectHeight floatValue] * r.size.height);
@@ -204,8 +198,6 @@
     [super touchesEnded:touches withEvent:event]; //otherwise have to stub other touch events
     
     UITouch *touch = [touches anyObject];
-    
-    NSLog(@"Touch: %f %f", [touch locationInView: self.image].x, [touch locationInView: self.image].y);
     CGPoint point = [touch locationInView: self.image];
     NSUInteger i = 0;
     
@@ -220,7 +212,7 @@
             r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
             [tag.rectWidth floatValue] * r.size.width,
             [tag.rectHeight floatValue] * r.size.height);
-        //***need to test with proper data
+
         if (point.x >= rect.origin.x &&
             point.x <= rect.origin.x + rect.size.width &&
             point.y >= rect.origin.y &&
