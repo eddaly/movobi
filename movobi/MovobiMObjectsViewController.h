@@ -11,7 +11,6 @@
 @interface MovobiMObjectsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *mobjects;
-@property (nonatomic) BOOL useClassSpecificDetailViews;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

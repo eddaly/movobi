@@ -7,11 +7,16 @@
 //
 
 #import "MovobiScreenViewController.h"
-#import "MovobiMObjectsViewController.h"
+#import "MovobiMObjectViewController.h"
 #import "MovobiScreenView.h"
 #import "Film.h"
 #import "Screen.h"
 #import "Tag.h"
+#import "MObject.h"
+#import "MOActor.h"
+#import "MOCharacter.h"
+#import "MOProp.h"
+#import "MOLocation.h"
 
 
 @interface MovobiScreenViewController ()
@@ -22,6 +27,8 @@
 
 @synthesize screen;
 @synthesize tags;
+@synthesize tag;
+@synthesize mobjectsArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,12 +50,14 @@
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"desc" ascending:YES];
     NSArray *sortDescriptors = @[nameDescriptor];
     tags = [screen.tags sortedArrayUsingDescriptors: sortDescriptors];
+    
+    //[self.navigationController setNavigationBarHidden: NO animated: YES]; If was hiding in FilmVC
 }
-
+/* no longer needed presumably
 - (void)viewWillAppear:(BOOL)animated
 {
     // Select again as not automatic when programmatically selected via touching image
-    [self.tagsTable selectRowAtIndexPath:[self.tagsTable indexPathForSelectedRow] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self.tableView selectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO scrollPosition:UITableViewScrollPositionNone];
     
     [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: -1]];
     [self.screenView setNeedsDisplay];
@@ -57,22 +66,28 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     // As forced select above need to deselect when appeared
-    [self.tagsTable deselectRowAtIndexPath:[self.tagsTable indexPathForSelectedRow] animated:YES ];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES ];
+}
+*/
+-(void)selectTag:(NSInteger) index
+{
+    self.tag = [tags objectAtIndex:index];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLayoutSubviews
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity: [tags count]];
-    for (Tag *tag in tags)
+    for (Tag *aTag in tags)
     {
         // Scaled image
         CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
         // Scaled tag
-        CGRect tagRect = CGRectMake (r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
-                                     r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
-                                     [tag.rectWidth floatValue] * r.size.width,
-                                     [tag.rectHeight floatValue] * r.size.height);
+        CGRect tagRect = CGRectMake (r.origin.x + [aTag.rectTopLeftX floatValue] * r.size.width,
+                                     r.origin.y + [aTag.rectTopLeftY floatValue] * r.size.height,
+                                     [aTag.rectWidth floatValue] * r.size.width,
+                                     [aTag.rectHeight floatValue] * r.size.height);
         
         NSValue *tagRectObj = [NSValue valueWithCGRect:tagRect];
         [array addObject: tagRectObj];
@@ -122,26 +137,25 @@
     
     CGPoint point = [touch locationInView: self.image];
     NSUInteger i = 0;
-    for (Tag *tag in tags)
+    for (Tag *aTag in tags)
     {
         // Scaled image
         CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
         // Scaled tag
-        CGRect rect = CGRectMake (r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
-                                  r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
-                                  [tag.rectWidth floatValue] * r.size.width,
-                                  [tag.rectHeight floatValue] * r.size.height);
+        CGRect rect = CGRectMake (r.origin.x + [aTag.rectTopLeftX floatValue] * r.size.width,
+                                  r.origin.y + [aTag.rectTopLeftY floatValue] * r.size.height,
+                                  [aTag.rectWidth floatValue] * r.size.width,
+                                  [aTag.rectHeight floatValue] * r.size.height);
 
         if (point.x >= rect.origin.x &&
             point.x <= rect.origin.x + rect.size.width &&
             point.y >= rect.origin.y &&
             point.y <= rect.origin.y + rect.size.height)
         {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
             [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: i]];
             [self.screenView setNeedsDisplay];
-            [self.tagsTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+            [self selectTag: i];
             return;
         }
         i++;
@@ -158,16 +172,16 @@
     NSUInteger i = 0;
     bool alreadySelected = false;
     
-    for (Tag *tag in tags)
+    for (Tag *aTag in tags)
     {
         // Scaled image
         CGRect r = [self frameForImage: self.image.image inImageViewAspectFit: self.image];
         
         // Scaled tag
-        CGRect rect = CGRectMake (r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
-                                  r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
-                                  [tag.rectWidth floatValue] * r.size.width,
-                                  [tag.rectHeight floatValue] * r.size.height);
+        CGRect rect = CGRectMake (r.origin.x + [aTag.rectTopLeftX floatValue] * r.size.width,
+                                  r.origin.y + [aTag.rectTopLeftY floatValue] * r.size.height,
+                                  [aTag.rectWidth floatValue] * r.size.width,
+                                  [aTag.rectHeight floatValue] * r.size.height);
         
         
         if (point.x >= rect.origin.x &&
@@ -175,18 +189,11 @@
             point.y >= rect.origin.y &&
             point.y <= rect.origin.y + rect.size.height && !alreadySelected)
         {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection: 0];//should also highlight box here (need to force redraw)
+            //should also highlight box here (need to force redraw)
             [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: i]];
             [self.screenView setNeedsDisplay];
-            [self.tagsTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+            [self selectTag: i];
             alreadySelected = true; // prevent overlapping tags fighting for selection (need a better solution)
-        }
-        // If was previously selected, deselect
-        else if ([self.tagsTable indexPathForSelectedRow].row == i)
-        {
-            [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: -1]];
-            [self.screenView setNeedsDisplay];
-            [self.tagsTable deselectRowAtIndexPath:[self.tagsTable indexPathForSelectedRow] animated:YES ];
         }
         i++;
     }
@@ -196,35 +203,6 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event]; //otherwise have to stub other touch events
-    
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView: self.image];
-    NSUInteger i = 0;
-    
-    for (Tag *tag in tags)
-    {
-        // Scaled image
-        CGRect r = [ self frameForImage: self.image.image inImageViewAspectFit: self.image];
-        
-        // Scaled tag
-        CGRect rect = CGRectMake (
-            r.origin.x + [tag.rectTopLeftX floatValue] * r.size.width,
-            r.origin.y + [tag.rectTopLeftY floatValue] * r.size.height,
-            [tag.rectWidth floatValue] * r.size.width,
-            [tag.rectHeight floatValue] * r.size.height);
-
-        if (point.x >= rect.origin.x &&
-            point.x <= rect.origin.x + rect.size.width &&
-            point.y >= rect.origin.y &&
-            point.y <= rect.origin.y + rect.size.height)
-        {
-            //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            //[self.tagsTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-            [self performSegueWithIdentifier:@"ShowTagMObjects" sender:nil];
-            return;
-        }
-        i++;
-    }
 }
 
 // E.g. a system event cancels, like low memory/battery
@@ -233,7 +211,7 @@
     [super touchesEnded:touches withEvent:event]; //otherwise have to stub other touch events (done now so perhaps remove?)
     [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: -1]];
     [self.screenView setNeedsDisplay];
-    [self.tagsTable deselectRowAtIndexPath:[self.tagsTable indexPathForSelectedRow] animated:NO ];
+    [self selectTag:0];// safe enough?
 }
 
 #pragma mark - Table view data source
@@ -246,18 +224,31 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tags count];
+    if (self.tag != nil){NSLog(@"%d",[self.tag.mobjects count]);
+        return [self.tag.mobjects count];}
+    else
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Tag";
+    static NSString *CellIdentifier = @"MObject";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Set up the cell...
-    Tag *tag = [tags objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", tag.desc];
+    NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    self.mobjectsArray = [self.tag.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
+    MObject *mobject = [mobjectsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = mobject.name;
+    if ([mobject isMemberOfClass:[MOActor class]])
+        cell.detailTextLabel.text = @"Actor";
+    else if ([mobject isMemberOfClass:[MOCharacter class]])
+        cell.detailTextLabel.text = @"Character";
+    else if ([mobject isMemberOfClass:[MOProp class]])
+        cell.detailTextLabel.text = @"Object";
+    else if ([mobject isMemberOfClass:[MOLocation class]])
+        cell.detailTextLabel.text = @"Location";
     
     return cell;
     
@@ -273,18 +264,15 @@
         
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"ShowTagMObjects" sender:nil];
+    [self performSegueWithIdentifier:@"ShowMObject" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"ShowTagMObjects"])
+    if ([[segue identifier] isEqualToString:@"ShowMObject"])
     {
-        MovobiMObjectsViewController *viewController = [segue destinationViewController];
-        NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-        Tag *tag = [tags objectAtIndex:[self.tagsTable indexPathForSelectedRow].row];
-        viewController.mobjects = [tag.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
-        viewController.useClassSpecificDetailViews = NO;
+        MovobiMObjectViewController *mobjectViewController = [segue destinationViewController];
+        mobjectViewController.mobject = [self.mobjectsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

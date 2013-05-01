@@ -31,9 +31,12 @@
 {
     [super viewDidLoad];
 
+    self.title = film.name; //can't seem to name title bar of tabviews
     self.nameLabel.text = film.name;
     self.yearLabel.text = film.year;
     self.imageView.image = film.image;
+    
+    //[self.navigationController setNavigationBarHidden: YES animated: YES]; could use this to lose Films option (need to show again in ScreenViewController so can get 'back'
 }
 
 - (void)didReceiveMemoryWarning

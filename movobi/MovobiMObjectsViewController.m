@@ -95,11 +95,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MObject *mobject = [self.mobjects objectAtIndex:[tableView indexPathForSelectedRow].row];
-    if ([mobject isMemberOfClass:[MOActor class]] && self.useClassSpecificDetailViews)
+    if ([mobject isMemberOfClass:[MOActor class]])
     {
         [self performSegueWithIdentifier:@"ShowMOActorDetail" sender:nil];
     }
-    else if ([mobject isMemberOfClass:[MOCharacter class]] && self.useClassSpecificDetailViews)
+    else if ([mobject isMemberOfClass:[MOCharacter class]])
     {
         [self performSegueWithIdentifier:@"ShowMOCharacterDetail" sender:nil];
     }

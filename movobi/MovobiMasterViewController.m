@@ -115,9 +115,7 @@
             }
         }
         moactorsViewController.mobjects = moactorsArray;
-        moactorsViewController.useClassSpecificDetailViews = YES;
         mocharactersViewController.mobjects = mocharactersArray;
-        mocharactersViewController.useClassSpecificDetailViews = YES;
         mopropsViewController.mobjects = mopropsArray;
         molocsViewController.mobjects = molocsArray;
     }

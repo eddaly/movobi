@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		644BF6071730E8E500416154 /* icon_50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6001730E8E500416154 /* icon_50x50.png */; };
+		644BF6081730E8E500416154 /* icon_58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6011730E8E500416154 /* icon_58x58@2x.png */; };
+		644BF6091730E8E500416154 /* icon_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6021730E8E500416154 /* icon_72x72.png */; };
+		644BF60A1730E8E500416154 /* icon_100x100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6031730E8E500416154 /* icon_100x100@2x.png */; };
+		644BF60B1730E8E500416154 /* icon_114x114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6041730E8E500416154 /* icon_114x114@2x.png */; };
+		644BF60C1730E8E500416154 /* icon_144x144@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6051730E8E500416154 /* icon_144x144@2x.png */; };
+		644BF60D1730E8E500416154 /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6061730E8E500416154 /* icon_57x57.png */; };
+		644BF6121730ED4400416154 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF60E1730ED4300416154 /* Icon-Small.png */; };
+		644BF6131730ED4400416154 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF60F1730ED4400416154 /* Icon-Small-50.png */; };
+		644BF6141730ED4400416154 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6101730ED4400416154 /* Icon-72.png */; };
+		644BF6151730ED4400416154 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6111730ED4400416154 /* Icon.png */; };
 		647A6587172BE88E0081E62C /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A6586172BE88E0081E62C /* Film.m */; };
 		647A658A172BE8AB0081E62C /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A6589172BE8AA0081E62C /* Screen.m */; };
 		647A658D172BE8BB0081E62C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A658C172BE8BB0081E62C /* Tag.m */; };
@@ -42,6 +53,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		644BF6001730E8E500416154 /* icon_50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_50x50.png; sourceTree = "<group>"; };
+		644BF6011730E8E500416154 /* icon_58x58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_58x58@2x.png"; sourceTree = "<group>"; };
+		644BF6021730E8E500416154 /* icon_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72x72.png; sourceTree = "<group>"; };
+		644BF6031730E8E500416154 /* icon_100x100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_100x100@2x.png"; sourceTree = "<group>"; };
+		644BF6041730E8E500416154 /* icon_114x114@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_114x114@2x.png"; sourceTree = "<group>"; };
+		644BF6051730E8E500416154 /* icon_144x144@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_144x144@2x.png"; sourceTree = "<group>"; };
+		644BF6061730E8E500416154 /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
+		644BF60E1730ED4300416154 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		644BF60F1730ED4400416154 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		644BF6101730ED4400416154 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		644BF6111730ED4400416154 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6463DD8117184754005E224B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		647A6585172BE88E0081E62C /* Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Film.h; sourceTree = "<group>"; };
 		647A6586172BE88E0081E62C /* Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Film.m; sourceTree = "<group>"; };
@@ -205,6 +227,17 @@
 		64C15BB91707999D00B66136 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				644BF60E1730ED4300416154 /* Icon-Small.png */,
+				644BF60F1730ED4400416154 /* Icon-Small-50.png */,
+				644BF6101730ED4400416154 /* Icon-72.png */,
+				644BF6111730ED4400416154 /* Icon.png */,
+				644BF6001730E8E500416154 /* icon_50x50.png */,
+				644BF6011730E8E500416154 /* icon_58x58@2x.png */,
+				644BF6021730E8E500416154 /* icon_72x72.png */,
+				644BF6031730E8E500416154 /* icon_100x100@2x.png */,
+				644BF6041730E8E500416154 /* icon_114x114@2x.png */,
+				644BF6051730E8E500416154 /* icon_144x144@2x.png */,
+				644BF6061730E8E500416154 /* icon_57x57.png */,
 				64C15BBA1707999D00B66136 /* movobi-Info.plist */,
 				64C15BBB1707999D00B66136 /* InfoPlist.strings */,
 				64C15BBE1707999D00B66136 /* main.m */,
@@ -247,7 +280,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Movobi Ltd";
 			};
-			buildConfigurationList = 64C15BA81707999D00B66136 /* Build configuration list for PBXProject "movobi" */;
+			buildConfigurationList = 64C15BA81707999D00B66136 /* Build configuration list for PBXProject "Movobi" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -275,6 +308,17 @@
 				64C15BC91707999D00B66136 /* Default-568h@2x.png in Resources */,
 				64C15BCC1707999D00B66136 /* MainStoryboard.storyboard in Resources */,
 				64C15BF01707CC1A00B66136 /* Notes.rtf in Resources */,
+				644BF6071730E8E500416154 /* icon_50x50.png in Resources */,
+				644BF6081730E8E500416154 /* icon_58x58@2x.png in Resources */,
+				644BF6091730E8E500416154 /* icon_72x72.png in Resources */,
+				644BF60A1730E8E500416154 /* icon_100x100@2x.png in Resources */,
+				644BF60B1730E8E500416154 /* icon_114x114@2x.png in Resources */,
+				644BF60C1730E8E500416154 /* icon_144x144@2x.png in Resources */,
+				644BF60D1730E8E500416154 /* icon_57x57.png in Resources */,
+				644BF6121730ED4400416154 /* Icon-Small.png in Resources */,
+				644BF6131730ED4400416154 /* Icon-Small-50.png in Resources */,
+				644BF6141730ED4400416154 /* Icon-72.png in Resources */,
+				644BF6151730ED4400416154 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +439,7 @@
 				GCC_PREFIX_HEADER = "movobi/movobi-Prefix.pch";
 				INFOPLIST_FILE = "movobi/movobi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -406,6 +451,7 @@
 				GCC_PREFIX_HEADER = "movobi/movobi-Prefix.pch";
 				INFOPLIST_FILE = "movobi/movobi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -413,7 +459,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		64C15BA81707999D00B66136 /* Build configuration list for PBXProject "movobi" */ = {
+		64C15BA81707999D00B66136 /* Build configuration list for PBXProject "Movobi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64C15BD61707999D00B66136 /* Debug */,
