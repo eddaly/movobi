@@ -20,6 +20,8 @@
 
 @implementation MovobiMObjectsViewController
 
+@synthesize mobjects;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -64,7 +66,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Set up the cell...
-    MObject *mobject = [self.mobjects objectAtIndex:indexPath.row];
+    MObject *mobject = [mobjects objectAtIndex:indexPath.row];
     
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
     [imageView setImage: mobject.image];

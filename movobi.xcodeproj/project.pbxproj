@@ -48,6 +48,7 @@
 		64C15C2D1707D85000B66136 /* MovobiScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C15C2C1707D84F00B66136 /* MovobiScreenViewController.m */; };
 		64C15C301707DB5700B66136 /* MovobiMObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C15C2F1707DB5700B66136 /* MovobiMObjectViewController.m */; };
 		64E9DD5B173011EC00810AC0 /* MovobiScreenObjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E9DD5A173011EC00810AC0 /* MovobiScreenObjectsViewController.m */; };
+		64F0FDA3174F9B7E0028DE4D /* movobi.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 64F0FDA2174F9B7E0028DE4D /* movobi.sqlite */; };
 		64FAAB1C172E4C9C00D721D9 /* MovobiMOActorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FAAB1B172E4C9C00D721D9 /* MovobiMOActorViewController.m */; };
 		64FAAB1F172E4CB300D721D9 /* MovobiMOCharacterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FAAB1E172E4CB300D721D9 /* MovobiMOCharacterViewController.m */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		64C15C2F1707DB5700B66136 /* MovobiMObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiMObjectViewController.m; sourceTree = "<group>"; };
 		64E9DD59173011EC00810AC0 /* MovobiScreenObjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiScreenObjectsViewController.h; sourceTree = "<group>"; };
 		64E9DD5A173011EC00810AC0 /* MovobiScreenObjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiScreenObjectsViewController.m; sourceTree = "<group>"; };
+		64F0FDA2174F9B7E0028DE4D /* movobi.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = movobi.sqlite; sourceTree = "<group>"; };
 		64FAAB1A172E4C9C00D721D9 /* MovobiMOActorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiMOActorViewController.h; sourceTree = "<group>"; };
 		64FAAB1B172E4C9C00D721D9 /* MovobiMOActorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiMOActorViewController.m; sourceTree = "<group>"; };
 		64FAAB1D172E4CB300D721D9 /* MovobiMOCharacterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiMOCharacterViewController.h; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				64C15BBA1707999D00B66136 /* movobi-Info.plist */,
 				64C15BBB1707999D00B66136 /* InfoPlist.strings */,
 				64C15BBE1707999D00B66136 /* main.m */,
+				64F0FDA2174F9B7E0028DE4D /* movobi.sqlite */,
 				64C15BC01707999D00B66136 /* movobi-Prefix.pch */,
 				64C15BC41707999D00B66136 /* Default.png */,
 				64C15BC61707999D00B66136 /* Default@2x.png */,
@@ -253,9 +256,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		64C15BAC1707999D00B66136 /* movobi */ = {
+		64C15BAC1707999D00B66136 /* Movobi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64C15BD81707999D00B66136 /* Build configuration list for PBXNativeTarget "movobi" */;
+			buildConfigurationList = 64C15BD81707999D00B66136 /* Build configuration list for PBXNativeTarget "Movobi" */;
 			buildPhases = (
 				64C15BA91707999D00B66136 /* Sources */,
 				64C15BAA1707999D00B66136 /* Frameworks */,
@@ -265,7 +268,7 @@
 			);
 			dependencies = (
 			);
-			name = movobi;
+			name = Movobi;
 			productName = movobi;
 			productReference = 64C15BAD1707999D00B66136 /* movobi.app */;
 			productType = "com.apple.product-type.application";
@@ -292,7 +295,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				64C15BAC1707999D00B66136 /* movobi */,
+				64C15BAC1707999D00B66136 /* Movobi */,
 			);
 		};
 /* End PBXProject section */
@@ -319,6 +322,7 @@
 				644BF6131730ED4400416154 /* Icon-Small-50.png in Resources */,
 				644BF6141730ED4400416154 /* Icon-72.png in Resources */,
 				644BF6151730ED4400416154 /* Icon.png in Resources */,
+				64F0FDA3174F9B7E0028DE4D /* movobi.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +392,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Edward Daly (AGHYH53A9B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edward Daly (AGHYH53A9B)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -403,6 +408,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -419,7 +426,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Edward Daly (AGHYH53A9B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edward Daly (AGHYH53A9B)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -427,6 +435,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -468,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64C15BD81707999D00B66136 /* Build configuration list for PBXNativeTarget "movobi" */ = {
+		64C15BD81707999D00B66136 /* Build configuration list for PBXNativeTarget "Movobi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64C15BD91707999D00B66136 /* Debug */,

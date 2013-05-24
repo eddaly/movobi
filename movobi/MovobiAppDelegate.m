@@ -108,8 +108,13 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"movobi.sqlite"];
+    // In application's Documents (not appropriate, for (small) user gen files
+    //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"movobi.sqlite"];
     
+    // This is where downloaded db should go
+    //NSURL *storeURL = [[self applicationLibraryApplicationSupportDirectory] URLByAppendingPathComponent:@"movobi.sqlite"];
+    
+    NSURL *storeURL = [[self applicationBundleDirectory] URLByAppendingPathComponent:@"movobi.sqlite"];
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -149,6 +154,74 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+/*- (NSString *)applicationAppSupportDirectory
+{
+    return [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject];
+}*/
+
+/* from stack on copying db from app bundle to app support not tested
+ 
+ NSBundle *thisBundle = [NSBundle mainBundle];
+ NSString *executableName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+ NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+ NSString *userpath = [paths objectAtIndex:0];
+ userpath = [userpath stringByAppendingPathComponent:executableName];    // The file will go in this directory
+ NSString *saveFilePath = [userpath stringByAppendingPathComponent:@"db.sqlite"];
+ NSFileManager *fileManager = [[NSFileManager alloc] init];
+ if ([fileManager fileExistsAtPath:userpath] == NO)
+    [fileManager createDirectoryAtPath:userpath withIntermediateDirectories:YES attributes:nil error:nil];
+ 
+ */
+
+- (NSURL *)applicationBundleDirectory
+{
+ return [[NSBundle mainBundle] resourceURL];
+}
+
+// Returns the URL to the application's Library Application Support directory.
+- (NSURL *)applicationLibraryApplicationSupportDirectory
+{
+    NSString* bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSFileManager*fm = [NSFileManager defaultManager];
+    NSURL*    dirPath = nil;
+    
+    // Find the application support directory in the home directory.
+    NSArray* appSupportDir = [fm URLsForDirectory:NSApplicationSupportDirectory
+                                        inDomains:NSUserDomainMask];
+    if ([appSupportDir count] > 0)
+    {
+        // Append the bundle ID to the URL for the
+        // Application Support directory
+        dirPath = [[appSupportDir objectAtIndex:0] URLByAppendingPathComponent:bundleID];
+        
+        // If the directory does not exist, this method creates it.
+        // This method call works in OS X 10.7 and later only.
+        NSError*    theError = nil;
+        if (![fm createDirectoryAtURL:dirPath withIntermediateDirectories:YES
+                           attributes:nil error:&theError])
+        {
+            // Handle the error.
+            
+            return nil;
+        }
+    }
+    [self addSkipBackupAttributeToItemAtURL: dirPath];
+    return dirPath;
+}
+
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+    
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    if(!success){
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
 }
 
 @end
