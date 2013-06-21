@@ -249,6 +249,7 @@
         cell.detailTextLabel.text = @"Object";
     else if ([mobject isMemberOfClass:[MOLocation class]])
         cell.detailTextLabel.text = @"Location";
+    cell.imageView.image = mobject.image;
     
     return cell;
     
