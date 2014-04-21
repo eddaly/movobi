@@ -153,7 +153,7 @@
             point.y >= rect.origin.y &&
             point.y <= rect.origin.y + rect.size.height)
         {
-            [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: i]];
+            [self.screenView setSelectedTagIndex: [NSNumber numberWithInteger: i]];
             [self.screenView setNeedsDisplay];
             [self selectTag: i];
             return;
@@ -190,7 +190,7 @@
             point.y <= rect.origin.y + rect.size.height && !alreadySelected)
         {
             //should also highlight box here (need to force redraw)
-            [self.screenView setSelectedTagIndex: [NSNumber numberWithInt: i]];
+            [self.screenView setSelectedTagIndex: [NSNumber numberWithInteger: i]];
             [self.screenView setNeedsDisplay];
             [self selectTag: i];
             alreadySelected = true; // prevent overlapping tags fighting for selection (need a better solution)
@@ -224,7 +224,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.tag != nil){NSLog(@"%d",[self.tag.mobjects count]);
+    if (self.tag != nil){NSLog(@"%lu",[self.tag.mobjects count]);
         return [self.tag.mobjects count];}
     else
         return 0;
