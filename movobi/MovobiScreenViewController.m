@@ -224,7 +224,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.tag != nil){NSLog(@"%lu",[self.tag.mobjects count]);
+    if (self.tag != nil){NSLog(@"%lu",(unsigned long)[self.tag.mobjects count]);
         return [self.tag.mobjects count];}
     else
         return 0;
