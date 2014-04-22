@@ -66,7 +66,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="LHm-zt-WAY"/>
+                    <tabBarItem key="tabBarItem" title="Films" id="LHm-zt-WAY"/>
                     <navigationItem key="navigationItem" title="Films" id="36"/>
                     <connections>
                         <segue destination="yUG-3g-H4T" kind="push" identifier="ShowFilm" id="GSl-hH-3jz"/>
@@ -74,7 +74,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-255" y="837"/>
+            <point key="canvasLocation" x="30" y="69"/>
         </scene>
         <!--Movobi Film View Controller - Film-->
         <scene sceneID="OMW-rq-Up6">
@@ -187,8 +187,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hUY-hK-X2n" firstAttribute="top" secondItem="hsL-fy-ji8" secondAttribute="bottom" id="2fD-TD-Vmb"/>
                             <constraint firstItem="hUY-hK-X2n" firstAttribute="trailing" secondItem="eWg-m8-caT" secondAttribute="trailing" id="GQE-DU-gl9"/>
-                            <constraint firstItem="hUY-hK-X2n" firstAttribute="top" secondItem="eWg-m8-caT" secondAttribute="top" id="MBp-8i-W5s"/>
                             <constraint firstItem="hUY-hK-X2n" firstAttribute="leading" secondItem="eWg-m8-caT" secondAttribute="leading" id="QPq-bK-ark"/>
                             <constraint firstItem="hUY-hK-X2n" firstAttribute="bottom" secondItem="eWg-m8-caT" secondAttribute="bottom" id="kZF-43-eiy"/>
                         </constraints>
@@ -197,6 +197,7 @@
                     <connections>
                         <outlet property="tableView" destination="hUY-hK-X2n" id="kEE-bB-fdg"/>
                         <segue destination="Hiu-47-GqE" kind="push" identifier="ShowMOActorDetail" id="wlc-Hc-c0q"/>
+                        <segue destination="7ad-o5-qCW" kind="push" identifier="ShowMOCharacterDetail" id="4O6-Ah-drB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzJ-dO-F5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,7 +505,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4vW-fR-kI4" kind="relationship" relationship="viewControllers" id="nKV-OZ-dXZ"/>
+                        <segue destination="4vW-fR-kI4" kind="relationship" relationship="viewControllers" id="uFc-Lf-rV5"/>
                         <segue destination="Szv-EE-gBb" kind="relationship" relationship="viewControllers" id="gHY-W3-jmM"/>
                         <segue destination="Wkj-3U-1lB" kind="relationship" relationship="viewControllers" id="xS7-wn-eAo"/>
                         <segue destination="qbF-MA-Bam" kind="relationship" relationship="viewControllers" id="BvH-ii-JeA"/>
@@ -514,7 +515,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24P-RZ-Xoo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="190" y="845"/>
+            <point key="canvasLocation" x="30" y="849"/>
         </scene>
         <!--View Controller - MOCharacters-->
         <scene sceneID="7zf-07-gpW">
@@ -570,9 +571,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hX3-yW-D94" firstAttribute="bottom" secondItem="Pap-2H-dzV" secondAttribute="bottom" id="1Uv-qL-efS"/>
-                            <constraint firstItem="hX3-yW-D94" firstAttribute="top" secondItem="Pap-2H-dzV" secondAttribute="top" id="2Qy-qg-iIa"/>
                             <constraint firstItem="hX3-yW-D94" firstAttribute="leading" secondItem="Pap-2H-dzV" secondAttribute="leading" id="UwV-Vr-pJ1"/>
                             <constraint firstItem="hX3-yW-D94" firstAttribute="trailing" secondItem="Pap-2H-dzV" secondAttribute="trailing" id="Z5A-BZ-vQ7"/>
+                            <constraint firstItem="hX3-yW-D94" firstAttribute="top" secondItem="QGh-bz-8Df" secondAttribute="bottom" id="vTT-r5-RwK"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Characters" id="8Ru-YB-i2U"/>
@@ -638,10 +639,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LJP-AX-6qD" firstAttribute="top" secondItem="poN-9d-Ztw" secondAttribute="bottom" id="14J-eh-7RL"/>
                             <constraint firstItem="LJP-AX-6qD" firstAttribute="trailing" secondItem="SRF-MC-0ND" secondAttribute="trailing" id="2uS-dq-Ppd"/>
                             <constraint firstItem="LJP-AX-6qD" firstAttribute="bottom" secondItem="SRF-MC-0ND" secondAttribute="bottom" id="31O-EP-0Je"/>
                             <constraint firstItem="LJP-AX-6qD" firstAttribute="leading" secondItem="SRF-MC-0ND" secondAttribute="leading" id="3Xx-pG-Kw6"/>
-                            <constraint firstItem="LJP-AX-6qD" firstAttribute="top" secondItem="SRF-MC-0ND" secondAttribute="top" id="6aQ-Ws-rcv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Props" id="3fe-yu-dtJ"/>
@@ -707,9 +708,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="653-jC-aTb" firstAttribute="top" secondItem="Z10-gy-6K6" secondAttribute="bottom" id="QQ8-NC-nF1"/>
                             <constraint firstItem="653-jC-aTb" firstAttribute="leading" secondItem="SMP-lw-EIV" secondAttribute="leading" id="Rge-TL-qkW"/>
                             <constraint firstItem="653-jC-aTb" firstAttribute="bottom" secondItem="SMP-lw-EIV" secondAttribute="bottom" id="XJx-v2-5AE"/>
-                            <constraint firstItem="653-jC-aTb" firstAttribute="top" secondItem="SMP-lw-EIV" secondAttribute="top" id="mIu-Ea-rgG"/>
                             <constraint firstItem="653-jC-aTb" firstAttribute="trailing" secondItem="SMP-lw-EIV" secondAttribute="trailing" id="u5c-8A-y3d"/>
                         </constraints>
                     </view>
@@ -1245,6 +1246,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="P3S-a3-fXX"/>
+        <segue reference="4O6-Ah-drB"/>
+        <segue reference="yW1-La-XqH"/>
     </inferredMetricsTieBreakers>
 </document>
