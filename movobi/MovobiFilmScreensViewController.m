@@ -42,6 +42,12 @@
     self.tableView.dataSource = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Hide the 'Films' back option
+    [self.navigationController setNavigationBarHidden: YES animated: NO];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

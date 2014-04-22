@@ -38,6 +38,12 @@
     
     self.tableView.delegate = self; 
     self.tableView.dataSource = self;
+ }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Hide the back option
+    [self.navigationController setNavigationBarHidden: YES animated: NO];
 }
 
 - (void)didReceiveMemoryWarning

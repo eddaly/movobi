@@ -32,7 +32,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
     NSString *urlString;
     if (self.mocharacter.url == nil || [self.mocharacter.url compare:@""] == NSOrderedSame)
     {
@@ -56,6 +55,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Show the back option
+    [self.navigationController setNavigationBarHidden: NO animated: NO];
 }
 
 - (void)didReceiveMemoryWarning

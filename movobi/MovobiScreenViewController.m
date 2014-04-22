@@ -50,9 +50,14 @@
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"desc" ascending:YES];
     NSArray *sortDescriptors = @[nameDescriptor];
     tags = [screen.tags sortedArrayUsingDescriptors: sortDescriptors];
-    
-    //[self.navigationController setNavigationBarHidden: NO animated: YES]; If was hiding in FilmVC
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Show the 'Screens' back option
+    [self.navigationController setNavigationBarHidden: NO animated: NO];
+}
+
 /* no longer needed presumably
 - (void)viewWillAppear:(BOOL)animated
 {

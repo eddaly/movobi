@@ -35,8 +35,12 @@
     self.nameLabel.text = film.name;
     self.yearLabel.text = film.year;
     self.imageView.image = film.image;
-    
-    //[self.navigationController setNavigationBarHidden: YES animated: YES]; could use this to lose Films option (need to show again in ScreenViewController so can get 'back'
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Show the 'Films' back option
+    [self.navigationController setNavigationBarHidden: NO animated: NO];
 }
 
 - (void)didReceiveMemoryWarning
