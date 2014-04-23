@@ -73,11 +73,8 @@
     
     // Set up the cell...
     MObject *mobject = [mobjects objectAtIndex:indexPath.row];
-    
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
-    [imageView setImage: mobject.image];
-    UILabel *descLabel = (UILabel *)[cell viewWithTag:101];
-    descLabel.text = mobject.name;
+    cell.textLabel.text = mobject.name;
+    cell.imageView.image = mobject.image;
     
     return cell;
 }
