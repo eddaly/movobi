@@ -46,6 +46,9 @@
 {
     // Hide the 'Films' back option
     [self.navigationController setNavigationBarHidden: YES animated: NO];
+    
+    //*** frame remains 0,32,320,504 (correct) though it's shifted down after going in and out of film view
+    NSLog(@"%f %f %f %f",self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning
