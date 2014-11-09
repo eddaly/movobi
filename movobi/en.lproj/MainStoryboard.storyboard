@@ -682,7 +682,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="GQo-4l-euZ" kind="relationship" relationship="viewControllers" id="PwH-nD-oKg"/>
-                        <segue destination="Kov-9c-0Dk" kind="relationship" relationship="viewControllers" id="hyN-ym-Bf5"/>
                         <segue destination="IXY-2d-iNN" kind="relationship" relationship="viewControllers" id="vQ7-kp-vhM"/>
                         <segue destination="TWm-Tk-9oT" kind="relationship" relationship="viewControllers" id="Cw6-hU-ITs"/>
                         <segue destination="WaC-bS-glr" kind="relationship" relationship="viewControllers" id="gGa-Po-LNC"/>
@@ -837,7 +836,7 @@
                             <constraint firstItem="Gxk-K1-3qt" firstAttribute="trailing" secondItem="ftY-vC-4W4" secondAttribute="trailing" id="wZr-39-PcK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Characters" id="ivJ-bL-8zK"/>
+                    <tabBarItem key="tabBarItem" title="People" id="ivJ-bL-8zK"/>
                     <navigationItem key="navigationItem" title="Screen" id="uuW-PU-9cQ"/>
                     <connections>
                         <outlet property="image" destination="z00-iQ-6Sz" id="5rd-BF-vYH"/>
@@ -1192,6 +1191,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="TVJ-Un-T7y"/>
-        <segue reference="yW1-La-XqH"/>
+        <segue reference="EV4-Bg-Di2"/>
     </inferredMetricsTieBreakers>
 </document>

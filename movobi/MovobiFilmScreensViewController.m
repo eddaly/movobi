@@ -118,19 +118,21 @@
 {
     if ([[segue identifier] isEqualToString:@"ShowScreen"])
     {
+        int idx = 0;
         UITabBarController *tabBarController = [segue destinationViewController];
         
-        MovobiScreenViewController *screenViewController = [[tabBarController viewControllers] objectAtIndex: 0];
+        MovobiScreenViewController *screenViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         screenViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
-        MovobiScreenObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: 1];
-        moactorsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        MovobiScreenObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: 2];
+        //*** Removed actors to simplify
+        //MovobiScreenObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
+        //moactorsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        MovobiScreenObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         mocharactersViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
-        MovobiScreenObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: 3];
+        MovobiScreenObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         mopropsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        MovobiScreenObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: 4];
+        MovobiScreenObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         molocsViewController.screen = [screens objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
         // Sort and set objects array for the object views
@@ -166,7 +168,8 @@
             }
         }
         
-        moactorsViewController.mobjects = moactorsArray;
+        //*** Removed actors to simplify
+        //moactorsViewController.mobjects = moactorsArray;
         mocharactersViewController.mobjects = mocharactersArray;
         mopropsViewController.mobjects = mopropsArray;
         molocsViewController.mobjects = molocsArray;
