@@ -8,9 +8,11 @@
 
 #import "MovobiScreenObjectsViewController.h"
 #import "MObject.h"
+#import "MOCharacter.h"
 #import "MOProp.h"
 #import "Screen.h"
 #import "MovobiMObjectViewController.h"
+#import "MovobiMOCharacterViewController.h"
 #import "MovobiProductViewController.h"
 
 @interface MovobiScreenObjectsViewController ()
@@ -101,6 +103,10 @@
     {
         [self performSegueWithIdentifier:@"ShowProduct" sender:nil];
     }
+    else if ([mobject isMemberOfClass:[MOCharacter class]])
+    {
+        [self performSegueWithIdentifier:@"ShowCharacter" sender:nil];
+    }
     else
     {
         [self performSegueWithIdentifier:@"ShowMObject" sender:nil];
@@ -113,6 +119,11 @@
     {
         MovobiMObjectViewController *mobjectViewController = [segue destinationViewController];
         mobjectViewController.mobject = [self.mobjects objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowCharacter"])
+    {
+        MovobiMOCharacterViewController *mocharacterViewController = [segue destinationViewController];
+        mocharacterViewController.mocharacter = [self.mobjects objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
     else if ([[segue identifier] isEqualToString:@"ShowProduct"])
     {
