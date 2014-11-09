@@ -14,4 +14,12 @@
 @property (nonatomic, strong) MObject *mobject;
 
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *buttonLabelMidTier;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewMidTier;
+
+@property (weak, nonatomic) IBOutlet UIButton *buttonLabelLowTier;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewLowTier;
+
 @end

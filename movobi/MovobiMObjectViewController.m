@@ -39,7 +39,7 @@
     }
     else
     {
-        urlString = [NSString stringWithFormat: @"http://google.com/search?q=%@&safe", mobject.url];
+        urlString = mobject.url;
     }
     NSString* webStringURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString: webStringURL];

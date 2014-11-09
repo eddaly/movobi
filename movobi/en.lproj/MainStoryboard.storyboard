@@ -294,7 +294,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8w-PA-YkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2922" y="171"/>
+            <point key="canvasLocation" x="3510" y="411"/>
         </scene>
         <!--Product-->
         <scene sceneID="YbF-Yh-Nur">
@@ -308,18 +308,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSe-nk-VsB">
-                                <rect key="frame" x="139" y="155" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSe-nk-VsB">
+                                <rect key="frame" x="16" y="272" width="287" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ea1-TZ-jq4">
+                                <rect key="frame" x="0.0" y="64" width="200" height="200"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebq-gV-yOz">
+                                <rect key="frame" x="208" y="149" width="102" height="30"/>
+                                <state key="normal" title="More Info...">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dkc-L2-HYO" kind="push" identifier="ShowTopTier" id="B6A-eG-ehQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You May Also Be Interested In:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-0Z-Vgo">
+                                <rect key="frame" x="16" y="322" width="240" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEk-eF-sKT">
+                                <rect key="frame" x="7" y="345" width="80" height="80"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ths-ku-9WE">
+                                <rect key="frame" x="7" y="431" width="80" height="80"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ll9-g8-kDh">
+                                <rect key="frame" x="110" y="370" width="200" height="30"/>
+                                <state key="normal" title="[Mid Tier Item Description]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dkc-L2-HYO" kind="push" identifier="ShowMidTier" id="rBb-4A-D4b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leo-1R-JSb">
+                                <rect key="frame" x="110" y="456" width="200" height="30"/>
+                                <state key="normal" title="[Low Tier Item Description]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dkc-L2-HYO" kind="push" identifier="ShowLowTier" id="s8j-GY-Orf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="TFl-d1-9uE"/>
                     <connections>
+                        <outlet property="buttonLabelLowTier" destination="leo-1R-JSb" id="c6F-uM-rfy"/>
+                        <outlet property="buttonLabelMidTier" destination="Ll9-g8-kDh" id="hu5-Il-8Y1"/>
                         <outlet property="descLabel" destination="XSe-nk-VsB" id="CMW-4z-zdS"/>
+                        <outlet property="imageView" destination="ea1-TZ-jq4" id="MJ5-VZ-LlQ"/>
+                        <outlet property="imageViewLowTier" destination="Ths-ku-9WE" id="eKs-cd-RuC"/>
+                        <outlet property="imageViewMidTier" destination="tEk-eF-sKT" id="hPy-9V-z9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCa-dO-ueO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -902,8 +949,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="NUf-FL-9sD"/>
-        <segue reference="g6F-Ep-iDl"/>
+        <segue reference="Y0K-5u-xSZ"/>
         <segue reference="TVJ-Un-T7y"/>
+        <segue reference="s8j-GY-Orf"/>
     </inferredMetricsTieBreakers>
 </document>
