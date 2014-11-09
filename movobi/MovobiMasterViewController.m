@@ -89,7 +89,8 @@
         // Sort and set MObjects arrays for the screens view
         NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         
-        MovobiMObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
+        //*** Disconnected to simplify
+        //MovobiMObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         MovobiMObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         MovobiMObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         MovobiMObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
@@ -118,7 +119,7 @@
                 [molocsArray addObject: mobject];
             }
         }
-        moactorsViewController.mobjects = moactorsArray;
+        //moactorsViewController.mobjects = moactorsArray;
         mocharactersViewController.mobjects = mocharactersArray;
         mopropsViewController.mobjects = mopropsArray;
         molocsViewController.mobjects = molocsArray;

@@ -178,7 +178,7 @@
                             <constraint firstAttribute="trailing" secondItem="hUY-hK-X2n" secondAttribute="trailing" id="voO-iL-XVV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Actors" id="cyx-j6-qME"/>
+                    <tabBarItem key="tabBarItem" title="People" id="cyx-j6-qME"/>
                     <connections>
                         <outlet property="tableView" destination="hUY-hK-X2n" id="kEE-bB-fdg"/>
                         <segue destination="Hiu-47-GqE" kind="push" identifier="ShowMOActorDetail" id="wlc-Hc-c0q"/>
@@ -498,7 +498,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Szv-EE-gBb" kind="relationship" relationship="viewControllers" id="gHY-W3-jmM"/>
-                        <segue destination="Wkj-3U-1lB" kind="relationship" relationship="viewControllers" id="xS7-wn-eAo"/>
                         <segue destination="qbF-MA-Bam" kind="relationship" relationship="viewControllers" id="BvH-ii-JeA"/>
                         <segue destination="9yt-IK-ECX" kind="relationship" relationship="viewControllers" id="i3s-aQ-atm"/>
                         <segue destination="FgE-n9-U0q" kind="relationship" relationship="viewControllers" id="eIM-jd-DGr"/>
@@ -552,7 +551,7 @@
                             <constraint firstItem="hX3-yW-D94" firstAttribute="top" secondItem="Pap-2H-dzV" secondAttribute="top" constant="32" id="gdd-Pd-JDD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Characters" id="8Ru-YB-i2U"/>
+                    <tabBarItem key="tabBarItem" title="People" id="8Ru-YB-i2U"/>
                     <connections>
                         <outlet property="tableView" destination="hX3-yW-D94" id="pvp-a0-vwZ"/>
                         <segue destination="7ad-o5-qCW" kind="push" identifier="ShowMOCharacterDetail" id="TVJ-Un-T7y"/>
@@ -1192,7 +1191,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4O6-Ah-drB"/>
+        <segue reference="TVJ-Un-T7y"/>
         <segue reference="yW1-La-XqH"/>
     </inferredMetricsTieBreakers>
 </document>
