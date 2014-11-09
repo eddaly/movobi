@@ -32,8 +32,8 @@
     [super viewDidLoad];
 
     self.title = film.name; //can't seem to name title bar of tabviews
-    self.nameLabel.text = film.name;
-    self.yearLabel.text = film.year;
+    self.nameLabel.text = film.name; // Note covered up by image
+    self.yearLabel.text = film.year; // Note covered up by image
     self.imageView.image = film.image;
 }
 
@@ -41,6 +41,9 @@
 {
     // Show the 'Films' back option
     [self.navigationController setNavigationBarHidden: NO animated: NO];
+    
+    NSLog(@"VIEW: %f %f %f %f",self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
+    NSLog(@"IMAGEVIEW: %f %f %f %f",self.imageView.frame.origin.x,self.imageView.frame.origin.y,self.imageView.frame.size.width,self.imageView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning

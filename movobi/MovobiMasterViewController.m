@@ -97,21 +97,21 @@
         NSMutableArray *molocsArray = [NSMutableArray arrayWithCapacity: 0];
         for (MObject *mobject in mobjectsArray)
         {
-            if ([mobject isMemberOfClass:[MOActor class]])
+            if ([mobject isMemberOfClass:[MOActor class]])// || [mobject isMemberOfClass:[MOCharacter class]])
             {
                 [moactorsArray addObject: mobject];
             }
             else if ([mobject isMemberOfClass:[MOCharacter class]])
             {
-                [mocharactersArray addObject:mobject];
+                [mocharactersArray addObject: mobject];
             }
             else if ([mobject isMemberOfClass:[MOProp class]])
             {
-                [mopropsArray addObject:mobject];
+                [mopropsArray addObject: mobject];
             }
             else if ([mobject isMemberOfClass:[MOLocation class]])
             {
-                [molocsArray addObject:mobject];
+                [molocsArray addObject: mobject];
             }
         }
         moactorsViewController.mobjects = moactorsArray;

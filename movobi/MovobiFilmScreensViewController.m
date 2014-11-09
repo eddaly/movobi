@@ -47,9 +47,11 @@
     // Hide the 'Films' back option
     [self.navigationController setNavigationBarHidden: YES animated: NO];
     
-    //*** frame remains 0,32,320,504 (correct) though it's shifted down after going in and out of film view
+    //*** frame remains 0,32,320,504 (correct) though it's shifted down after going in and out of film view (happens on others too but less obvious)
     NSLog(@"%f %f %f %f",self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
-}
+    
+    self.automaticallyAdjustsScrollViewInsets = NO; //***sounds promising but no joy :(http://blog.jaredsinclair.com/post/61507315630/wrestling-with-status-bars-and-navigation-bars-on-ios-7
+ }
 
 - (void)didReceiveMemoryWarning
 {

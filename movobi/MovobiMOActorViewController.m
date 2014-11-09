@@ -60,6 +60,14 @@
     [self.navigationController setNavigationBarHidden: NO animated: NO];
 }
 
+/*- (void)viewDidAppear:(BOOL)animated
+{
+    
+    CGRect frame = self.tableView.frame;
+    frame.size.height = self.tableView.contentSize.height;
+    self.tableView.frame = frame;
+}*/
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
