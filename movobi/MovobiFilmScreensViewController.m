@@ -45,7 +45,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     // Hide the 'Films' back option
-    [self.navigationController setNavigationBarHidden: YES animated: NO];
+    //*** Need to show it now as removed the Film Detail View so need a way back
+    [self.navigationController setNavigationBarHidden: NO animated: NO];
     
     //*** frame remains 0,32,320,504 (correct) though it's shifted down after going in and out of film view (happens on others too but less obvious)
     NSLog(@"%f %f %f %f",self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);

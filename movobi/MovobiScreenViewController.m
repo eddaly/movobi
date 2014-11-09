@@ -17,6 +17,7 @@
 #import "MOCharacter.h"
 #import "MOProp.h"
 #import "MOLocation.h"
+#import "MovobiProductViewController.h"
 
 
 @interface MovobiScreenViewController ()
@@ -270,7 +271,15 @@
         
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"ShowMObject" sender:nil];
+    MObject *mobject = [self.mobjectsArray objectAtIndex:[tableView indexPathForSelectedRow].row];
+    if ([mobject isMemberOfClass:[MOProp class]])
+    {
+        [self performSegueWithIdentifier:@"ShowProduct" sender:nil];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"ShowMObject" sender:nil];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -279,6 +288,11 @@
     {
         MovobiMObjectViewController *mobjectViewController = [segue destinationViewController];
         mobjectViewController.mobject = [self.mobjectsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowProduct"])
+    {
+        MovobiProductViewController *productViewController = [segue destinationViewController];
+        productViewController.mobject = [self.mobjectsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

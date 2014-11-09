@@ -18,6 +18,7 @@
 		644BF6131730ED4400416154 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF60F1730ED4400416154 /* Icon-Small-50.png */; };
 		644BF6141730ED4400416154 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6101730ED4400416154 /* Icon-72.png */; };
 		644BF6151730ED4400416154 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 644BF6111730ED4400416154 /* Icon.png */; };
+		646F7F1B1A0F9F84001B9FF2 /* MovobiProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 646F7F1A1A0F9F84001B9FF2 /* MovobiProductViewController.m */; };
 		647A6587172BE88E0081E62C /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A6586172BE88E0081E62C /* Film.m */; };
 		647A658A172BE8AB0081E62C /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A6589172BE8AA0081E62C /* Screen.m */; };
 		647A658D172BE8BB0081E62C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 647A658C172BE8BB0081E62C /* Tag.m */; };
@@ -66,6 +67,8 @@
 		644BF6101730ED4400416154 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		644BF6111730ED4400416154 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6463DD8117184754005E224B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		646F7F191A0F9F84001B9FF2 /* MovobiProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovobiProductViewController.h; sourceTree = "<group>"; };
+		646F7F1A1A0F9F84001B9FF2 /* MovobiProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovobiProductViewController.m; sourceTree = "<group>"; };
 		647A6585172BE88E0081E62C /* Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Film.h; sourceTree = "<group>"; };
 		647A6586172BE88E0081E62C /* Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Film.m; sourceTree = "<group>"; };
 		647A6588172BE8AA0081E62C /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				64C15BB91707999D00B66136 /* Supporting Files */,
 				64C15BDE1707A1DF00B66136 /* MovobiImageTransformer.h */,
 				64C15BDF1707A1E000B66136 /* MovobiImageTransformer.m */,
+				646F7F191A0F9F84001B9FF2 /* MovobiProductViewController.h */,
+				646F7F1A1A0F9F84001B9FF2 /* MovobiProductViewController.m */,
 			);
 			path = movobi;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				647A6593172BE8E50081E62C /* MOProp.m in Sources */,
 				647A6596172BE8F50081E62C /* MOCharacter.m in Sources */,
 				647A6599172BE9070081E62C /* MOActor.m in Sources */,
+				646F7F1B1A0F9F84001B9FF2 /* MovobiProductViewController.m in Sources */,
 				647A659C172BE91E0081E62C /* MObject.m in Sources */,
 				647A65AA172D3BB40081E62C /* MovobiFilmViewController.m in Sources */,
 				64903322172DA15C0003BF25 /* MovobiFilmScreensViewController.m in Sources */,

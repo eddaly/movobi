@@ -90,7 +90,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxm-PM-izg">
                                 <rect key="frame" x="20" y="74" width="280" height="420"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-fJ-LrQ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-fJ-LrQ">
                                 <rect key="frame" x="109" y="264" width="101" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="KgE-3h-kLb"/>
@@ -99,7 +99,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lar-X4-cR6">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lar-X4-cR6">
                                 <rect key="frame" x="138" y="231" width="43" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="AJ8-qA-bfE"/>
@@ -422,11 +422,12 @@
                         <outlet property="screenView" destination="EB9-xQ-UJi" id="o31-Zf-CHD"/>
                         <outlet property="tableView" destination="J13-Fv-Zzb" id="5Zq-kz-4hH"/>
                         <segue destination="dkc-L2-HYO" kind="push" identifier="ShowMObject" id="g6F-Ep-iDl"/>
+                        <segue destination="hw6-NZ-FO9" kind="push" identifier="ShowProduct" id="Y0K-5u-xSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udf-Gf-W1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250" y="-277"/>
+            <point key="canvasLocation" x="2446" y="-297"/>
         </scene>
         <!--MObject-->
         <scene sceneID="P91-i9-mgG">
@@ -483,7 +484,37 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8w-PA-YkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3114" y="1019"/>
+            <point key="canvasLocation" x="3310" y="719"/>
+        </scene>
+        <!--Product-->
+        <scene sceneID="YbF-Yh-Nur">
+            <objects>
+                <viewController title="Product" id="hw6-NZ-FO9" customClass="MovobiProductViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qtv-JM-eSU"/>
+                        <viewControllerLayoutGuide type="bottom" id="xwn-5J-vaA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C1r-0j-U35">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSe-nk-VsB">
+                                <rect key="frame" x="139" y="155" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TFl-d1-9uE"/>
+                    <connections>
+                        <outlet property="descLabel" destination="XSe-nk-VsB" id="CMW-4z-zdS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCa-dO-ueO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3310" y="1711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xFy-zn-DOu">
@@ -608,7 +639,7 @@
                     <tabBarItem key="tabBarItem" title="Products" id="3fe-yu-dtJ"/>
                     <connections>
                         <outlet property="tableView" destination="LJP-AX-6qD" id="Olx-9z-4vG"/>
-                        <segue destination="l6r-ii-py7" kind="push" identifier="ShowMObjectDetail" id="X0B-Qh-I7Y"/>
+                        <segue destination="hw6-NZ-FO9" kind="push" identifier="ShowMOPropDetail" id="Jzp-vn-g4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hR4-WO-e8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -689,7 +720,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYw-NV-zHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="-277"/>
+            <point key="canvasLocation" x="1900" y="-297"/>
         </scene>
         <!--Screen MOActors-->
         <scene sceneID="Pur-m2-lsH">
@@ -768,7 +799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Riv-ge-cGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250" y="371"/>
+            <point key="canvasLocation" x="2258" y="366"/>
         </scene>
         <!--Screen MOCharacters-->
         <scene sceneID="bUK-Ea-vgU">
@@ -915,13 +946,13 @@
                             <constraint firstItem="p2W-MS-Ixs" firstAttribute="leading" secondItem="yg0-VF-8aE" secondAttribute="leading" id="sE0-ml-wgA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Props" id="jhv-Wm-hyq"/>
+                    <tabBarItem key="tabBarItem" title="Products" id="jhv-Wm-hyq"/>
                     <navigationItem key="navigationItem" title="Screen" id="WIs-gW-Y8I"/>
                     <connections>
                         <outlet property="image" destination="p2W-MS-Ixs" id="YyQ-o7-A1z"/>
                         <outlet property="screenView" destination="OGd-NF-ezm" id="HEH-II-F3e"/>
                         <outlet property="tableView" destination="DVW-BU-KIf" id="9Cz-s2-Ezq"/>
-                        <segue destination="dkc-L2-HYO" kind="push" identifier="ShowMObject" id="BzM-p9-uhe"/>
+                        <segue destination="hw6-NZ-FO9" kind="push" identifier="ShowProduct" id="NUf-FL-9sD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aW0-6L-kG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1190,7 +1221,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="P3S-a3-fXX"/>
         <segue reference="TVJ-Un-T7y"/>
-        <segue reference="EV4-Bg-Di2"/>
+        <segue reference="Jzp-vn-g4T"/>
     </inferredMetricsTieBreakers>
 </document>

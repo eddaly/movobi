@@ -8,8 +8,10 @@
 
 #import "MovobiScreenObjectsViewController.h"
 #import "MObject.h"
+#import "MOProp.h"
 #import "Screen.h"
 #import "MovobiMObjectViewController.h"
+#import "MovobiProductViewController.h"
 
 @interface MovobiScreenObjectsViewController ()
 
@@ -94,7 +96,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"ShowMObject" sender:nil];
+    MObject *mobject = [self.mobjects objectAtIndex:[tableView indexPathForSelectedRow].row];
+    if ([mobject isMemberOfClass:[MOProp class]])
+    {
+        [self performSegueWithIdentifier:@"ShowProduct" sender:nil];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"ShowMObject" sender:nil];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -103,6 +113,11 @@
     {
         MovobiMObjectViewController *mobjectViewController = [segue destinationViewController];
         mobjectViewController.mobject = [self.mobjects objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowProduct"])
+    {
+        MovobiProductViewController *productViewController = [segue destinationViewController];
+        productViewController.mobject = [self.mobjects objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

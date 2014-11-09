@@ -10,9 +10,11 @@
 #import "MObject.h"
 #import "MOActor.h"
 #import "MOCharacter.h"
+#import "MOProp.h"
 #import "MovobiMObjectViewController.h"
 #import "MovobiMOActorViewController.h"
 #import "MovobiMOCharacterViewController.h"
+#import "MovobiProductViewController.h"
 
 @interface MovobiMObjectsViewController ()
 
@@ -108,6 +110,10 @@
     {
         [self performSegueWithIdentifier:@"ShowMOCharacterDetail" sender:nil];
     }
+    else if ([mobject isMemberOfClass:[MOProp class]])
+    {
+        [self performSegueWithIdentifier:@"ShowMOPropDetail" sender:nil];
+    }
     else
     {
         [self performSegueWithIdentifier:@"ShowMObjectDetail" sender:nil];
@@ -125,6 +131,11 @@
     {
         MovobiMOCharacterViewController *viewController = [segue destinationViewController];
         viewController.mocharacter = [self.mobjects objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowMOPropDetail"])
+    {
+        MovobiProductViewController *viewController = [segue destinationViewController];
+        viewController.mobject = [self.mobjects objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
     else if ([[segue identifier] isEqualToString:@"ShowMObjectDetail"])
     {
