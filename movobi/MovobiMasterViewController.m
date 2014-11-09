@@ -72,25 +72,29 @@
     if ([[segue identifier] isEqualToString:@"ShowFilm"])
     {
         UITabBarController *tabBarController = [segue destinationViewController];
+        int idx = 0;
         
         // Set film for the film detail view
-        MovobiFilmViewController *filmViewController = [[tabBarController viewControllers] objectAtIndex: 0];
-        filmViewController.film = [films objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        //*** Disconnected the 'film detail view' so commented out these lines
+        //MovobiFilmViewController *filmViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
+        //filmViewController.film = [films objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        //Film *film = filmViewController.film;
+        Film *film = [films objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         
         // Sort and set screens array for the screens view
-        MovobiFilmScreensViewController *filmScreensViewController = [[tabBarController viewControllers] objectAtIndex: 1];
+        MovobiFilmScreensViewController *filmScreensViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         NSSortDescriptor *descriptorTimeStart = [[NSSortDescriptor alloc] initWithKey:@"timeStart" ascending:YES];
-        filmScreensViewController.screens = [filmViewController.film.screens sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorTimeStart]];
+        filmScreensViewController.screens = [film.screens sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorTimeStart]];
     
         // Sort and set MObjects arrays for the screens view
         NSSortDescriptor *descriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         
-        MovobiMObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: 2];
-        MovobiMObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: 3];
-        MovobiMObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: 4];
-        MovobiMObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: 5];
+        MovobiMObjectsViewController *moactorsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
+        MovobiMObjectsViewController *mocharactersViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
+        MovobiMObjectsViewController *mopropsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
+        MovobiMObjectsViewController *molocsViewController = [[tabBarController viewControllers] objectAtIndex: idx++];
         
-        NSArray *mobjectsArray = [filmViewController.film.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
+        NSArray *mobjectsArray = [film.mobjects sortedArrayUsingDescriptors: [NSArray arrayWithObject:descriptorName]];
         NSMutableArray *moactorsArray = [NSMutableArray arrayWithCapacity: 0];
         NSMutableArray *mocharactersArray = [NSMutableArray arrayWithCapacity: 0];
         NSMutableArray *mopropsArray = [NSMutableArray arrayWithCapacity: 0];
